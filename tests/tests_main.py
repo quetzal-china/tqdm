@@ -66,7 +66,7 @@ def test_main_bytes(capsysbinary, monkeypatch):
 
 def test_main_multibyte_delim(capsysbinary, monkeypatch):
     # a delimiter must match even when it straddles two read buffers
-    IN_DATA = '1é2é3'.encode('U8')
+    IN_DATA = '1é2é3'.encode()
 
     monkeypatch.setattr(sys, 'stdin', BytesIO(IN_DATA))
     main(sys.stderr, ['--delim', 'é', '--buf_size', '2',
